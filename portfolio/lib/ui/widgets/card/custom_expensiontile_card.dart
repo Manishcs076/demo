@@ -33,6 +33,7 @@ class CustomExpensionTileCard extends StatefulWidget {
   //void Function(bool) onExpansionChanged;
 
   @override
+  // ignore: library_private_types_in_public_api
   _CustomExpensionTileCardState createState() =>
       _CustomExpensionTileCardState();
 }

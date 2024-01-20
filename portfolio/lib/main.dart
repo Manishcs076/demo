@@ -1,5 +1,7 @@
+import 'package:portfolio/bindings/dashboard_binding.dart';
 import 'package:portfolio/services/api_service.dart';
 import 'package:portfolio/services/navigator_service.dart';
+import 'package:portfolio/ui/screens/dashboard/dashbard.dart';
 import 'package:portfolio/utils/setup_locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -39,9 +41,14 @@ class MyApp extends StatelessWidget {
           theme: ThemeData.light().copyWith(
             primaryColor: AppColor.primaryColor,
           ),
-          // initialRoute: SplashScreen.id,
-          // initialBinding: LoginBinding(),
-          getPages: [],
+          initialRoute: DashboardScreen.id,
+          initialBinding: DashboardBinding(),
+          getPages: [
+            GetPage(
+              name: DashboardScreen.id,
+              page: () => const DashboardScreen(),
+            )
+          ],
         );
       },
     );
