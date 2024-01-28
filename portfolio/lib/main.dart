@@ -6,7 +6,7 @@ import 'package:portfolio/utils/setup_locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'constants/app_color.dart';
+// import 'constants/app_color.dart';
 
 var navigatorService = locator<NavigatorService>();
 
@@ -39,7 +39,8 @@ class MyApp extends StatelessWidget {
           title: 'My Portfolio',
           navigatorKey: navigatorService.navigatorKey,
           theme: ThemeData.light().copyWith(
-            primaryColor: AppColor.primaryColor,
+            primaryColor: Colors.white,
+            //  AppColor.primaryColor,
           ),
           initialRoute: DashboardScreen.id,
           initialBinding: DashboardBinding(),
