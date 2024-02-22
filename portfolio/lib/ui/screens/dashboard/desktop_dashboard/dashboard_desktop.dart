@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:rive/rive.dart' as rive;
+import 'dart:math' as math;
 
 class DashboardDesktop extends StatelessWidget {
   const DashboardDesktop({super.key});
@@ -38,10 +40,11 @@ class DashboardDesktop extends StatelessWidget {
                       children: [
                         TextButton(
                           onPressed: () {},
-                          child: const Text(
+                          child: Text(
                             'Home',
                             style: TextStyle(
                               color: Colors.white,
+                              fontSize: 4.5.sp,
                             ),
                           ),
                         ),
@@ -50,10 +53,11 @@ class DashboardDesktop extends StatelessWidget {
                         ),
                         TextButton(
                           onPressed: () {},
-                          child: const Text(
+                          child: Text(
                             'About me',
                             style: TextStyle(
                               color: Colors.white,
+                              fontSize: 4.5.sp,
                             ),
                           ),
                         ),
@@ -62,10 +66,11 @@ class DashboardDesktop extends StatelessWidget {
                         ),
                         TextButton(
                           onPressed: () {},
-                          child: const Text(
+                          child: Text(
                             'Work',
                             style: TextStyle(
                               color: Colors.white,
+                              fontSize: 4.5.sp,
                             ),
                           ),
                         ),
@@ -74,10 +79,11 @@ class DashboardDesktop extends StatelessWidget {
                         ),
                         TextButton(
                           onPressed: () {},
-                          child: const Text(
+                          child: Text(
                             'Contact',
                             style: TextStyle(
                               color: Colors.white,
+                              fontSize: 4.5.sp,
                             ),
                           ),
                         ),
@@ -87,61 +93,133 @@ class DashboardDesktop extends StatelessWidget {
                 ),
               ],
             ),
-            Expanded(
-              child: Container(
-                margin: EdgeInsets.only(
-                  top: MediaQuery.sizeOf(context).height / 5,
-                  bottom: MediaQuery.sizeOf(context).height / 5,
-                ),
-                padding: EdgeInsets.all(20.r),
-                width: 20.w,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(
-                      50.r,
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  // margin: EdgeInsets.only(
+                  //   top: MediaQuery.sizeOf(context).height / 5,
+                  //   bottom: MediaQuery.sizeOf(context).height / 5,
+                  // ),
+                  padding: EdgeInsets.all(20.r),
+                  width: 20.w,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(
+                        50.r,
+                      ),
+                      bottomRight: Radius.circular(
+                        50.r,
+                      ),
                     ),
-                    bottomRight: Radius.circular(
-                      50.r,
+                    color: Colors.white.withOpacity(0.2),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      SizedBox(
+                        height: 10.h,
+                      ),
+                      SizedBox(
+                        height: 20.h,
+                        child: const rive.RiveAnimation.asset(
+                          "assets/rive/home.riv",
+                        ),
+                      ),
+                      // IconButton(
+                      //   onPressed: () {},
+                      //   icon: const Icon(
+                      //     Icons.home,
+                      //     color: Colors.white,
+                      //     // Color(0xFF0F103F),
+                      //   ),
+                      // ),
+                      SizedBox(
+                        height: 20.h,
+                      ),
+                      IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.person,
+                          color: Colors.white,
+                          // color: Color(0xFF0F103F),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20.h,
+                      ),
+                      IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.work, color: Colors.white,
+                          // color: Color(0xFF0F103F),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20.h,
+                      ),
+                      IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.call, color: Colors.white,
+                          // color: Color(0xFF0F103F),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20.h,
+                      ),
+                      IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.search, color: Colors.white,
+                          // color: Color(0xFF0F103F),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10.h,
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    height: MediaQuery.sizeOf(context).height.h,
+                    color: Colors.transparent,
+                    child: SingleChildScrollView(
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                          top: 18.r,
+                          left: 18.r,
+                          right: 18.r,
+                        ),
+                        child:
+                            //  Container(child: ,)
+                            ListView.builder(
+                                itemCount: 2000,
+                                shrinkWrap: true,
+                                itemBuilder: (BuildContext context, index) {
+                                  return Container(
+                                    height: 50.h,
+                                    color: index % 2 == 0
+                                        ? Color.fromARGB(
+                                            math.Random().nextInt(255),
+                                            math.Random().nextInt(255),
+                                            math.Random().nextInt(255),
+                                            math.Random().nextInt(255),
+                                          )
+                                        : Color.fromARGB(
+                                            math.Random().nextInt(255),
+                                            math.Random().nextInt(255),
+                                            math.Random().nextInt(255),
+                                            math.Random().nextInt(255),
+                                          ),
+                                  );
+                                }),
+                      ),
                     ),
                   ),
-                  color: Colors.green.shade100,
                 ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.home,
-                      ),
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.person,
-                      ),
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.work,
-                      ),
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.call,
-                      ),
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.search,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              ],
             ),
           ],
         ),
