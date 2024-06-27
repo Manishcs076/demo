@@ -93,16 +93,53 @@ class DashboardDesktop extends StatelessWidget {
                 ),
               ],
             ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
+            Stack(
               children: [
                 Container(
-                  // margin: EdgeInsets.only(
-                  //   top: MediaQuery.sizeOf(context).height / 5,
-                  //   bottom: MediaQuery.sizeOf(context).height / 5,
-                  // ),
-                  padding: EdgeInsets.all(20.r),
-                  width: 20.w,
+                  height: MediaQuery.sizeOf(context).height - 50.h,
+                  width: MediaQuery.sizeOf(context).width,
+                  color: Colors.transparent,
+                  child: SingleChildScrollView(
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                        top: 18.r,
+                        left: 18.r,
+                        right: 18.r,
+                      ),
+                      child:
+                          //  Container(child: ,)
+                          ListView.builder(
+                              itemCount: 2000,
+                              shrinkWrap: true,
+                              itemBuilder: (BuildContext context, index) {
+                                return Container(
+                                  height: 50.h,
+                                  color: index % 2 == 0
+                                      ? Color.fromARGB(
+                                          math.Random().nextInt(255),
+                                          math.Random().nextInt(255),
+                                          math.Random().nextInt(255),
+                                          math.Random().nextInt(255),
+                                        )
+                                      : Color.fromARGB(
+                                          math.Random().nextInt(255),
+                                          math.Random().nextInt(255),
+                                          math.Random().nextInt(255),
+                                          math.Random().nextInt(255),
+                                        ),
+                                );
+                              }),
+                    ),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.only(
+                    top: MediaQuery.sizeOf(context).height * 0.035,
+                    left: MediaQuery.sizeOf(context).height * 0.017,
+                    right: MediaQuery.sizeOf(context).height * 0.017,
+                  ),
+                  width: MediaQuery.sizeOf(context).height * 0.1,
+                  // height: MediaQuery.sizeOf(context).height - 300.h,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.only(
                       topRight: Radius.circular(
@@ -114,108 +151,76 @@ class DashboardDesktop extends StatelessWidget {
                     ),
                     color: Colors.white.withOpacity(0.2),
                   ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      SizedBox(
-                        height: 10.h,
-                      ),
-                      SizedBox(
-                        height: 20.h,
-                        child: const rive.RiveAnimation.asset(
-                          "assets/rive/home.riv",
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        SizedBox(
+                          height: MediaQuery.sizeOf(context).height * 0.017,
                         ),
-                      ),
-                      // IconButton(
-                      //   onPressed: () {},
-                      //   icon: const Icon(
-                      //     Icons.home,
-                      //     color: Colors.white,
-                      //     // Color(0xFF0F103F),
-                      //   ),
-                      // ),
-                      SizedBox(
-                        height: 20.h,
-                      ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.person,
-                          color: Colors.white,
-                          // color: Color(0xFF0F103F),
+                        SizedBox(
+                          height: MediaQuery.sizeOf(context).height * 0.030,
+                          child: const rive.RiveAnimation.asset(
+                            "assets/rive/home.riv",
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        height: 20.h,
-                      ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.work, color: Colors.white,
-                          // color: Color(0xFF0F103F),
+                        // IconButton(
+                        //   onPressed: () {},
+                        //   icon: const Icon(
+                        //     Icons.home,
+                        //     color: Colors.white,
+                        //     // Color(0xFF0F103F),
+                        //   ),
+                        // ),
+                        SizedBox(
+                          height: MediaQuery.sizeOf(context).height * 0.030,
                         ),
-                      ),
-                      SizedBox(
-                        height: 20.h,
-                      ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.call, color: Colors.white,
-                          // color: Color(0xFF0F103F),
+                        IconButton(
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.person,
+                            color: Colors.white,
+                            size: MediaQuery.sizeOf(context).height * 0.030,
+                            // color: Color(0xFF0F103F),
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        height: 20.h,
-                      ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.search, color: Colors.white,
-                          // color: Color(0xFF0F103F),
+                        SizedBox(
+                          height: MediaQuery.sizeOf(context).height * 0.030,
                         ),
-                      ),
-                      SizedBox(
-                        height: 10.h,
-                      ),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                    height: MediaQuery.sizeOf(context).height.h,
-                    color: Colors.transparent,
-                    child: SingleChildScrollView(
-                      child: Padding(
-                        padding: EdgeInsets.only(
-                          top: 18.r,
-                          left: 18.r,
-                          right: 18.r,
+                        IconButton(
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.work, color: Colors.white,
+                            size: MediaQuery.sizeOf(context).height * 0.030,
+                            // color: Color(0xFF0F103F),
+                          ),
                         ),
-                        child:
-                            //  Container(child: ,)
-                            ListView.builder(
-                                itemCount: 2000,
-                                shrinkWrap: true,
-                                itemBuilder: (BuildContext context, index) {
-                                  return Container(
-                                    height: 50.h,
-                                    color: index % 2 == 0
-                                        ? Color.fromARGB(
-                                            math.Random().nextInt(255),
-                                            math.Random().nextInt(255),
-                                            math.Random().nextInt(255),
-                                            math.Random().nextInt(255),
-                                          )
-                                        : Color.fromARGB(
-                                            math.Random().nextInt(255),
-                                            math.Random().nextInt(255),
-                                            math.Random().nextInt(255),
-                                            math.Random().nextInt(255),
-                                          ),
-                                  );
-                                }),
-                      ),
+                        SizedBox(
+                          height: MediaQuery.sizeOf(context).height * 0.030,
+                        ),
+                        IconButton(
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.call, color: Colors.white,
+                            size: MediaQuery.sizeOf(context).height * 0.030,
+                            // color: Color(0xFF0F103F),
+                          ),
+                        ),
+                        SizedBox(
+                          height: MediaQuery.sizeOf(context).height * 0.030,
+                        ),
+                        IconButton(
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.search, color: Colors.white,
+                            size: MediaQuery.sizeOf(context).height * 0.030,
+                            // color: Color(0xFF0F103F),
+                          ),
+                        ),
+                        SizedBox(
+                          height: MediaQuery.sizeOf(context).height * 0.017,
+                        ),
+                      ],
                     ),
                   ),
                 ),
