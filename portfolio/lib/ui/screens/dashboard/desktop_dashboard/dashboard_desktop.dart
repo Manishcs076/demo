@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rive/rive.dart' as rive;
-import 'dart:math' as math;
 
 class DashboardDesktop extends StatelessWidget {
   const DashboardDesktop({super.key});
@@ -16,8 +14,10 @@ class DashboardDesktop extends StatelessWidget {
           gradient: RadialGradient(
             center: const Alignment(1.0, -0.5),
             colors: const [
-              Color(0xFF2954A3),
-              Color(0xFF0F103F),
+              // Color(0xFF2954A3),
+              Color(0xff28282B),
+              // Color(0xFF0F103F),
+              Color(0xff28282B)
             ],
             radius: 1.0.r,
           ),
@@ -43,7 +43,7 @@ class DashboardDesktop extends StatelessWidget {
                           child: Text(
                             'Home',
                             style: TextStyle(
-                              color: Colors.white,
+                              color: const Color(0xff20C20E),
                               fontSize: 4.5.sp,
                             ),
                           ),
@@ -56,7 +56,7 @@ class DashboardDesktop extends StatelessWidget {
                           child: Text(
                             'About me',
                             style: TextStyle(
-                              color: Colors.white,
+                              color: const Color(0xff20C20E),
                               fontSize: 4.5.sp,
                             ),
                           ),
@@ -69,7 +69,7 @@ class DashboardDesktop extends StatelessWidget {
                           child: Text(
                             'Work',
                             style: TextStyle(
-                              color: Colors.white,
+                              color: const Color(0xff20C20E),
                               fontSize: 4.5.sp,
                             ),
                           ),
@@ -82,7 +82,7 @@ class DashboardDesktop extends StatelessWidget {
                           child: Text(
                             'Contact',
                             style: TextStyle(
-                              color: Colors.white,
+                              color: const Color(0xff20C20E),
                               fontSize: 4.5.sp,
                             ),
                           ),
@@ -104,73 +104,68 @@ class DashboardDesktop extends StatelessWidget {
                   padding: EdgeInsets.all(20.r),
                   width: 20.w,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(
-                        50.r,
+                      borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(
+                          50.r,
+                        ),
+                        bottomRight: Radius.circular(
+                          50.r,
+                        ),
                       ),
-                      bottomRight: Radius.circular(
-                        50.r,
+                      color: const Color(0xff20C20E)
+                          .withOpacity(0.1) //  Colors.white.withOpacity(0.2),
                       ),
-                    ),
-                    color: Colors.white.withOpacity(0.2),
-                  ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       SizedBox(
                         height: 10.h,
                       ),
-                      SizedBox(
-                        height: 20.h,
-                        child: const rive.RiveAnimation.asset(
-                          "assets/rive/home.riv",
+                      GestureDetector(
+                        onTap: () {},
+                        child: const Icon(
+                          Icons.home,
+                          color: Colors.white,
+                          // color: Color(0xFF0F103F),
                         ),
                       ),
-                      // IconButton(
-                      //   onPressed: () {},
-                      //   icon: const Icon(
-                      //     Icons.home,
-                      //     color: Colors.white,
-                      //     // Color(0xFF0F103F),
-                      //   ),
-                      // ),
                       SizedBox(
-                        height: 20.h,
+                        height: 30.h,
                       ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
+                      GestureDetector(
+                        onTap: () {},
+                        child: const Icon(
                           Icons.person,
                           color: Colors.white,
                           // color: Color(0xFF0F103F),
                         ),
                       ),
                       SizedBox(
-                        height: 20.h,
+                        height: 30.h,
                       ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
+                      GestureDetector(
+                        onTap: () {},
+                        child: const Icon(
                           Icons.work, color: Colors.white,
                           // color: Color(0xFF0F103F),
                         ),
                       ),
                       SizedBox(
-                        height: 20.h,
+                        height: 30.h,
                       ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
+                      GestureDetector(
+                        onTap: () {},
+                        child: const Icon(
                           Icons.call, color: Colors.white,
                           // color: Color(0xFF0F103F),
                         ),
                       ),
                       SizedBox(
-                        height: 20.h,
+                        height: 30.h,
                       ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
+                      GestureDetector(
+                        onTap: () {},
+                        child: const Icon(
                           Icons.search, color: Colors.white,
                           // color: Color(0xFF0F103F),
                         ),
@@ -187,35 +182,89 @@ class DashboardDesktop extends StatelessWidget {
                     color: Colors.transparent,
                     child: SingleChildScrollView(
                       child: Padding(
-                        padding: EdgeInsets.only(
-                          top: 18.r,
-                          left: 18.r,
-                          right: 18.r,
-                        ),
-                        child:
-                            //  Container(child: ,)
-                            ListView.builder(
-                                itemCount: 2000,
-                                shrinkWrap: true,
-                                itemBuilder: (BuildContext context, index) {
-                                  return Container(
-                                    height: 50.h,
-                                    color: index % 2 == 0
-                                        ? Color.fromARGB(
-                                            math.Random().nextInt(255),
-                                            math.Random().nextInt(255),
-                                            math.Random().nextInt(255),
-                                            math.Random().nextInt(255),
-                                          )
-                                        : Color.fromARGB(
-                                            math.Random().nextInt(255),
-                                            math.Random().nextInt(255),
-                                            math.Random().nextInt(255),
-                                            math.Random().nextInt(255),
+                          padding: EdgeInsets.only(
+                            top: 18.r,
+                            left: 18.r,
+                            right: 18.r,
+                          ),
+                          child: Container(
+                            color: Colors.transparent,
+                            height: MediaQuery.sizeOf(context).height,
+                            width: MediaQuery.sizeOf(context).width,
+                            child: Padding(
+                              padding: EdgeInsets.only(left: 30.r),
+                              child: Row(
+                                children: [
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "Hi,",
+                                        style: TextStyle(
+                                            fontSize: 50.r,
+                                            color: const Color(0xff20C20E)),
+                                      ),
+                                      Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.baseline,
+                                        textBaseline: TextBaseline.ideographic,
+                                        children: [
+                                          Text(
+                                            "My name is",
+                                            style: TextStyle(
+                                                fontSize: 50.r,
+                                                color: Colors.white),
                                           ),
-                                  );
-                                }),
-                      ),
+                                          SizedBox(
+                                            width: 20.r,
+                                          ),
+                                          Text(
+                                            "Manish",
+                                            style: TextStyle(
+                                                fontSize: 80.r,
+                                                color: const Color(0xff20C20E)),
+                                          ),
+                                          Text(
+                                            ".",
+                                            style: TextStyle(
+                                                fontSize: 50.r,
+                                                color: Colors.white),
+                                          ),
+                                        ],
+                                      ),
+                                      Text(
+                                        "I'm a",
+                                        style: TextStyle(
+                                            fontSize: 50.r,
+                                            color: Colors.white),
+                                      ),
+                                      Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.baseline,
+                                        textBaseline: TextBaseline.ideographic,
+                                        children: [
+                                          Text(
+                                            "Flutter Developer",
+                                            style: TextStyle(
+                                                fontSize: 80.r,
+                                                color: const Color(0xff20C20E)),
+                                          ),
+                                          Text(
+                                            ".",
+                                            style: TextStyle(
+                                                fontSize: 50.r,
+                                                color: Colors.white),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          )),
                     ),
                   ),
                 ),
